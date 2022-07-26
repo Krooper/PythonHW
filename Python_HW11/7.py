@@ -13,18 +13,19 @@ class ComplexNumber:
         self.imaginary_part = int(imaginary_part)
 
     def __str__(self):
-        if self.imaginary_part > 0 and self.real_part != 0:
-            if self.imaginary_part == 1:
-                return f'{self.real_part}+i'
-            return f'{self.real_part}+{self.imaginary_part}i'
-        elif self.imaginary_part < 0 and self.real_part != 0:
-            if self.imaginary_part == -1:
-                return f'{self.real_part}-i'
-            return f'{self.real_part}{self.imaginary_part}i'
-        elif self.imaginary_part == 0 and self.real_part != 0:
-            return f'{self.real_part}'
-        else:
+        if self.real_part == 0:
             return f'{self.imaginary_part}i'
+        else:
+            if self.imaginary_part > 0:
+                if self.imaginary_part == 1:
+                    return f'{self.real_part}+i'
+                return f'{self.real_part}+{self.imaginary_part}i'
+            elif self.imaginary_part < 0:
+                if self.imaginary_part == -1:
+                    return f'{self.real_part}-i'
+                return f'{self.real_part}{self.imaginary_part}i'
+            else:
+                return f'{self.real_part}'
 
     def __add__(self, other):
         new_real = self.real_part+other.real_part
