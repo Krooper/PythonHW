@@ -1,6 +1,6 @@
 class IntTypeErr(Exception):
     def __init__(self, in_str, msg='Вы ввели не число!'):
-        self.number = in_str
+        self.in_str = in_str
         self.message = msg
         super().__init__(self.message)
 
@@ -18,5 +18,5 @@ while True:
         num = int(inp)
         in_lst.append(num)
     except ValueError:
-        print(IntTypeErr(num))
+        print(IntTypeErr(inp))
 print(in_lst)
